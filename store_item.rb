@@ -12,28 +12,15 @@
 
 class Car
 
-  def initialize(input_car_color, input_car_price, input_car_year)
-    @input_car_color = input_car_color
-    @input_car_price = input_car_price
-    @car_year = input_car_year
+  attr_reader :car_color, :car_price, :car_year
+  attr_writer :car_year
+
+  def initialize(input_options)
+    @car_color = input_options[:car_color]
+    @car_price = input_options[:car_price]
+    @car_year = input_options[:car_year]
   end
 
-  def car_color
-    @input_car_color
-  end
-
-  def car_price
-    @input_car_price
-  end
-
-  def car_year
-    @car_year
-  end
-  
-  def car_year=(input_year)
-    @car_year = input_year
-  end
-  
   def print_info
     puts "this is a #{car_color} car that costs #{car_price} dollars" 
   end
@@ -44,8 +31,8 @@ class Car
 
 end
 
-car1 = Car.new("red", 23000, 2018)
-car2 = Car.new("blue", 1000, 2000)
+car1 = Car.new(car_color: "blue", car_price: 15000, car_year: 2008)
+car2 = Car.new(car_color: "red", car_price: 20000, car_year: 2010)
 
 p car1.print_info
 p car2.print_info
