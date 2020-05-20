@@ -15,7 +15,7 @@ class Car
   def initialize(input_car_color, input_car_price, input_car_year)
     @input_car_color = input_car_color
     @input_car_price = input_car_price
-    @input_car_year = input_car_year
+    @car_year = input_car_year
   end
 
   def car_color
@@ -25,13 +25,17 @@ class Car
   def car_price
     @input_car_price
   end
-  
+
   def car_year
-    @input_car_year
+    @car_year
+  end
+  
+  def car_year=(input_year)
+    @car_year = input_year
   end
   
   def print_info
-    puts "this is a #{@car_year} #{car_color} car that costs #{car_price} dollars" 
+    puts "this is a #{car_color} car that costs #{car_price} dollars" 
   end
 
   def car_tax
@@ -40,12 +44,17 @@ class Car
 
 end
 
-car1 = Car.new("red", 23000, 2017)
-car2 = Car.new("blue", 10000, 2020)
+car1 = Car.new("red", 23000, 2018)
+car2 = Car.new("blue", 1000, 2000)
 
 p car1.print_info
 p car2.print_info
+p car1.car_price
+p car1.car_color
 
+car1.car_year = 2000
 p car2.car_year
-p car1.car_tax
+car2.car_year = 2018
+p car2.car_year
+
  
