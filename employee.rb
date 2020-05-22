@@ -1,18 +1,25 @@
-# 4 cores of info first last salary active status (true or false)
+class Employee
 
-# store this data using diff data structures
+  attr_reader :first_name, :last_name, :salary, :active
+  attr_writer :active
 
-# Employee1 = ["john", "Blank", 60000, true]
-# Employee2 = ["sam", "Carter", 25000, true]
+  def initialize(input_options)
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @salary = input_options[:salary]
+    @active = input_options[:active]
+  end
 
-# # puts Employee1[0] + " " + Employee1[1] + " makes " + Employee1[2].to_s + " dollars a year."
-# puts "#{Employee1[0]} #{Employee1[1]} makes #{Employee1[2]} dollars a year"
+  def give_annual_raise
+    @salary = 1.05 * @salary
+  end
 
+  def print_info
+    puts "#{first_name} #{last_name} makes #{salary} a year."
+  end
 
-Employee1 = {:first_name => "John", :last_name => "Blank", :salary => 60000, :status => true}
-Employee2 = {:first_name => "sam", :last_name => "familna", :salary => 45000, :status => true}
+end
 
-puts "#{Employee1[:first_name]} #{Employee1[:last_name]} makes #{Employee1[:salary]} a year"
-
-puts Employee1
-
+# create instances of employees
+employee1 = Employee.new({first_name: "Majora", last_name: "Carter", salary: 80000, active: true})
+employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: true)
